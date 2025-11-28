@@ -58,4 +58,30 @@ Công thức này cho phép ước lượng lưu lượng cho các đoạn đư�
 ## Lưu ý về cơ chế cập nhật (drop & insert)
 Quy trình từ Bước 1 → 4 là cơ chế:
 
+Tức là mỗi lần có dữ liệu mới, toàn bộ lưu lượng của đoạn đường trong khung 24h được sinh lại.
 
+---
+
+## Thắc mắc 1
+**Lần cập nhật thứ nhất đã đầy đủ dữ liệu Bước 4, lần 2 có cần cập nhật nữa không?**
+
+→ **Có.**  
+Vì cơ chế luôn là “drop and insert”, bất kể dữ liệu đã đầy đủ hay chưa.
+
+---
+
+## Thắc mắc 2
+**Nên để năm hoạt động là 2024 hay 2025?**
+
+- Nếu hệ thống đang chạy dữ liệu mới từ camera → dùng **2025**.
+- Nếu backfill hoặc mô phỏng dữ liệu lịch sử → dùng **2024**.
+
+---
+
+## Bước 5: Refresh cache
+Sau khi hoàn thành import dữ liệu, chạy refresh cho:
+- Mapbox Emission  
+- Emission By Province  
+- Emission By Year  
+
+Để cập nhật giao diện và dữ liệu phân tích.
